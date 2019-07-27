@@ -17,6 +17,7 @@ class DatabaseConnection{
             println("驱动加载")
             this.conn=DriverManager.getConnection(dbURL,username,password)
         }catch (e:Exception){
+            println("驱动加载错误")
             e.printStackTrace()
         }
     }

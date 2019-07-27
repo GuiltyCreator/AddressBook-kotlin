@@ -22,6 +22,7 @@ class FriendDAOImpl(val conn:Connection) :IFriendDAO{
                 friends.add(friend)
             }
         } catch (e: Exception) {
+            println("查询出错")
             e.printStackTrace()
         }
         finally {
@@ -29,6 +30,7 @@ class FriendDAOImpl(val conn:Connection) :IFriendDAO{
                 try {
                     this.pstmt!!.close()
                 }catch (e:Exception){
+                    println("PreparedStatement 关闭错误")
                     e.printStackTrace()
                 }
             }
@@ -49,6 +51,7 @@ class FriendDAOImpl(val conn:Connection) :IFriendDAO{
                 friend = Friend(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5))
             }
         } catch (e: Exception) {
+            println("查询出错")
             e.printStackTrace()
         }
         finally {
@@ -56,6 +59,7 @@ class FriendDAOImpl(val conn:Connection) :IFriendDAO{
                 try {
                     this.pstmt!!.close()
                 }catch (e:Exception){
+                    println("PreparedStatement 关闭错误")
                     e.printStackTrace()
                 }
             }
